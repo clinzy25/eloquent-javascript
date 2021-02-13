@@ -1,65 +1,67 @@
 const log = console.log
 
-//M I N I M U M
+//L O O P I N G  A  T R I A N G L E
 
-const min = (a, b) => Math.min(a, b);
-
-
-log(min(0, 10));
-// → 0
-log(min(0, -10));
-// → -10
-
-
-
-// R E C U R S I O N
-
-const isEven = (num) => {
-	if (num == 0) {
-		return true;
-	} else if (num == 1 || num == -1) {
-		return false;
-	}
-	if (num > 0) {
-		return isEven(num - 2);
-	} else {
-		return isEven(num + 2);
-	}  
+for (let hash = '#'; hash.length < 8; hash+='#') {
+	log(hash);
 }
 
-log(isEven(50));
-// → true
-log(isEven(75));
-// → false
-log(isEven(-1));
-// → false
-log(isEven(-2));
-// true
-log(isEven(-21));
-//false
+// #
+// ##
+// ###
+// ####
+// #####
+// ######
+// #######
 
 
+//F I Z Z B U Z Z
 
-//B E A N  C O U N T I N G
+let i = 1;
+while (i <= 100) {
+  if (i % 15 == 0) log('FizzBuzz');
+  else if (i % 3 == 0) log('Fizz');
+  else if (i % 5 == 0) log('Buzz');
+  else log(i);
+  i++;
+}
 
-const countBs = (str) => {
-  	let count = 0;
-	for (let char of str) {
-    	if (char === 'B') count++
+// 1
+// 2
+// Fizz
+// 4
+// Buzz
+// Fizz
+// 7
+// 8
+// Fizz
+// Buzz
+// 11
+// Fizz
+// 13
+// 14
+// FizzBuzz
+//...
+
+
+//C H E S S B O A R D
+
+let size = 8;
+let board = ''
+for (let x = 1; x <= size; x++) {
+	for (let y = 1; y <= size; y++) {
+    	if ((x + y) % 2 == 0) board += ' ';
+      	else board += '#';
     }
-  return count;
+  board += '\n';
 }
+log(board);
 
-const countChar = (str, char) => {
-	let count = 0;
-  	for (let letter of str) {
-    	if (letter === char) count++
-    }
-  return count;
-}
-
-
-log(countBs("BBC"));
-// → 2
-log(countChar("kakkerlak", "k"));
-// → 4
+//  # # # #
+// # # # # 
+//  # # # #
+// # # # # 
+//  # # # #
+// # # # # 
+//  # # # #
+// # # # # 
