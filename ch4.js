@@ -110,33 +110,15 @@ console.log(nth(arrayToList([10, 20, 30]), 1));
 
 // D E E P  C O M P A R I S O N
 
-//First try
-const deepEqual = (a, b) => {
-	if (typeof a === 'object' && typeof b === 'object' && 
-			   a != null && b != null) {
-		for (let i = 0; Object.keys(a)[i] != undefined; i++)  {
-          if (typeof Object.values(a)[i] === 'object' || typeof Object.values(b)[i] === 'object'){
-          	return deepEqual(Object.values(a)[i], Object.values(b)[i])
-          } else {
-			return (Object.keys(a)[i] === Object.keys(b)[i]) && 
-				   (Object.values(a)[i] === Object.values(b)[i])
-          }
-        }
-	} else {
-		return a === b;
-	}
-}
-
-//Refactored
 const deepEqual = (a, b) => {
 	if (a === b) return true;
 	if (typeof a !== 'object' || typeof b !== 'object' ||
-		Object.keys(a).length !== Object.keys(b).length) return false
-	for(let i in a) 
-		if (!(i in b) || !deepEqual(a[i], b[i])) return false
-  	for(let i in b) 
-		if (!(i in a) || !deepEqual(a[i], b[i])) return false
-  	return true
+		Object.keys(a).length !== Object.keys(b).length) return false;
+	for(let i in a);
+		if (!(i in b) || !deepEqual(a[i], b[i])) return false;
+  	for(let i in b); 
+		if (!(i in a) || !deepEqual(a[i], b[i])) return false;
+  	return true;
 }
 
 let obj = {here: {is: "an"}, object: 2};
@@ -146,3 +128,4 @@ log(deepEqual(obj, {here: 1, object: 2}));
 // → false
 log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
+
