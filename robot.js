@@ -141,7 +141,7 @@ function findRoute(graph, from, to) {
         }
     }
 }
-//fuck
+//graph theory
 
 
 function goalOrientedRobot({place, parcels}, route) {
