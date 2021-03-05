@@ -36,6 +36,42 @@ let buildTable = (arr) => {
 
 let div = document.querySelector('#mountains').appendChild(buildTable(MOUNTAINS))
 
+// Mountains
+// name  height  place
+// Kilimanjaro 5895  Tanzania
+// Everest 8848  Nepal
+// Mount Fuji  3776  Japan
+// Vaalserberg 323 Netherlands
+// Denali  6168  United States
+// Popocatepetl  5465  Mexico
+// Mont Blanc  4808  Italy/France
+
 
 //E L E M E N T S  B Y  T A G  N A M E
 
+const byTagName = (node, tagName) => {
+  let result = [];
+  function search(node) {
+    for(let el of node.childNodes) {
+      if(el.nodeType == 1) {
+        if(el.nodeName.toLowerCase() == tagName) {
+          result.push(el)
+        }
+        search(el)
+        }
+      }
+    }
+  search(node);
+  return result;
+}
+
+console.log(byTagName(document.body, "h1").length);
+// → 1
+console.log(byTagName(document.body, "span").length);
+// → 3
+let para = document.querySelector("p");
+console.log(byTagName(para, "span").length);
+// → 2
+
+
+//T H E  C A T ' S  H A T
